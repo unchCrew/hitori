@@ -14,12 +14,11 @@ This script is created by [Nazedev](https://github.com/nazedev) using Node.js an
 
 ## Contributor
 
+- [NeoDev](https://github.com/TheNeodev) (ngedit doang)
 - [NazeDev](https://github.com/nazedev) (Pembuat)
 - [Zaynn](https://github.com/ZaynRcK) (Penyedia Layanan API)
 - [Dani](https://github.com/nazedev) (Penyumbang Code)
 
-#### Join Group
-[![Grup WhatsApp](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Hx9vcBVhbc04KLVGPFtH2R) 
 
 ---
 #### Deploy to Heroku
@@ -41,7 +40,7 @@ This script is created by [Nazedev](https://github.com/nazedev) using Node.js an
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/nazedev/hitori
+git clone https://github.com/unchCrew/hitori
 cd hitori
 npm install
 npm update
@@ -54,7 +53,7 @@ pkg install git
 pkg install nodejs
 pkg install ffmpeg
 pkg install imagemagick
-git clone https://github.com/nazedev/hitori
+git clone https://github.com/unchCrew/hitori
 cd hitori
 npm install
 ```
@@ -86,7 +85,7 @@ node .
 
 License: [MIT](https://choosealicense.com/licenses/mit/)
 
-#### Support Me
+#### Support Original SC creator
 - [Saweria](https://saweria.co/naze)
 
 ## Thanks to
