@@ -1206,7 +1206,7 @@ module.exports = naze = async (naze, m, msg, store, groupCache) => {
 			}
 			break
 			case 'sc': case 'script': {
-				await m.reply(`https://github.com/nazedev/hitori\n⬆️ Itu Sc nya cuy`, {
+				await m.reply(`SC nya private untuk sementara waktu ya bre. \n`, {
 					contextInfo: {
 						forwardingScore: 10,
 						isForwarded: true,
