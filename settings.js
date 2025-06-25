@@ -12,7 +12,7 @@ const chalk = require('chalk');
 global.owner = ['6283150958207'] //['628','628'] 2 owner atau lebih
 global.packname = 'Bot WhatsApp'
 global.author = 'NeoDev'
-global.botname = 'NeoBot'
+global.botname = 'Uzi-Bot'
 global.listprefix = ['+','!','.']
 global.listv = ['•','●','■','✿','▲','➩','➢','➣','➤','✦','✧','△','❀','○','□','♤','♡','◇','♧','々','〆']
 global.tempatDB = 'database.json' // Taruh url mongodb di sini jika menggunakan mongodb. Format : 'mongodb+srv://...'
@@ -83,3 +83,8 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 });
+
+
+global.APIs.gelbooru = 'https://gelbooru.com/index.php?page=dapi&s=post&q=index'
+global.APIKeys['https://gelbooru.com/index.php?page=dapi&s=post&q=index'] = ''
+
