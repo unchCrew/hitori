@@ -244,7 +244,8 @@ async function MessagesUpsert(naze, message, store, groupCache) {
 		if (!store.groupMetadata || Object.keys(store.groupMetadata).length === 0) store.groupMetadata ??= await naze.groupFetchAllParticipating().catch(e => ({}));
 		const type = msg.message ? (getContentType(msg.message) || Object.keys(msg.message)[0]) : '';
 		const m = await Serialize(naze, msg, store, groupCache)
-		require('../naze')(naze, m, msg, store, groupCache);
+		require("../naze")(naze, m, msg, store, groupCache);
+
 		if (type === 'interactiveResponseMessage' && m.quoted && m.quoted.fromMe) {
 			await naze.appendResponseMessage(m, JSON.parse(m.msg.nativeFlowResponseMessage.paramsJson).id);
 		}
@@ -867,3 +868,32 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
