@@ -272,7 +272,7 @@ module.exports = naze = async (naze, m, msg, store, groupCache) => {
 		if (m.message && m.key.remoteJid !== 'status@broadcast') {
 			if ((set.autoread && naze.public) || isCreator) {
 				naze.readMessages([m.key]);
-				console.log(chalk.black(chalk.bgWhite('[ PESAN ]:'), chalk.bgGreen(new Date), chalk.bgHex('#00EAD3')(budy || m.type), chalk.bgHex('#AF26EB')(m.key.id) + '\n' + chalk.bgCyanBright('[ DARI ] :'), chalk.bgYellow(m.pushName || (isCreator ? 'Bot' : 'Anonim')), chalk.bgHex('#FF449F')(m.sender), chalk.bgHex('#FF5700')(m.isGroup ? m.metadata.subject : m.chat.endsWith('@newsletter') ? 'Newsletter' : 'Private Chat'), chalk.bgBlue('(' + m.chat + ')')));
+				console.log(chalk.black(chalk.bgWhite('[ PESAN ]:'), chalk.bgGreen(new Date), chalk.bgHex('#00EAD3')(budy || m.type), chalk.bgHex('#AF26EB')(m.key.id) + '\n' + chalk.bgCyanBright('[ DARI ] :'), chalk.bgYellow(m.pushName || (isCreator ? 'Uzi-Bot' : 'Anonim')), chalk.bgHex('#FF449F')(m.sender), chalk.bgHex('#FF5700')(m.isGroup ? m.metadata.subject : m.chat.endsWith('@newsletter') ? 'Newsletter' : 'Private Chat'), chalk.bgBlue('(' + m.chat + ')')));
 			}
 		}
 		
@@ -4494,3 +4494,73 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 });
+
+
+		// NSFW Filter
+		if (!isNsfw && (command === 'gelbooru' || command === 'xvideos' || command === 'xnxx' || command === 'rule34')) {
+			m.reply('NSFW commands are disabled in this group. Please enable it by typing .nsfw');
+			return;
+		}
+
+
+
+		
+		case 'gelbooru':
+			if (!isNsfw) return m.reply('NSFW commands are not enabled in this group. Please enable it with .nsfw on');
+			const gelbooruQuery = text;
+			if (!gelbooruQuery) return m.reply('Usage: .gelbooru <tags>');
+			try {
+				const Gelbooru = require("gelbooru-api");
+				const GelbooruClient = new Gelbooru();
+				const posts = await GelbooruClient.search({
+					tags: gelbooruQuery.split(" "),
+					limit: 1,
+					page: 1
+				});
+				if (posts.length > 0) {
+					await naze.sendFileUrl(m.chat, posts[0].file_url, `Tags: ${posts[0].tags}`);
+				} else {
+					m.reply("No results found for your query.");
+				}
+			} catch (e) {
+				console.error(e);
+				m.reply("Error fetching from Gelbooru.");
+			}
+			break;
+			if (!isNsfw) return m.reply('NSFW commands are disabled in this group. Please enable it by typing .nsfw');
+			let nsfwMenu = `*───「 NSFW MENU 」───*
+${setv} ${prefix}gelbooru <tags>
+${setv} ${prefix}xvideos <query>
+${setv} ${prefix}xnxx <query>
+${setv} ${prefix}rule34 <tags>
+`;
+			m.reply(nsfwMenu);
+			break;
+
+
+
+		case 'xnxx':
+			if (!isNsfw) return m.reply('NSFW commands are not enabled in this group. Please enable it with .nsfw on');
+			const xnxxQuery = text;
+			if (!xnxxQuery) return m.reply('Usage: .xnxx <query>');
+			m.reply('XNXX feature is not yet implemented. This requires a Python script execution.');
+			break;
+
+
+
+		case "xvideos":
+			if (!isNsfw) return m.reply("NSFW commands are not enabled in this group. Please enable it with .nsfw on");
+			const xvideosQuery = text;
+			if (!xvideosQuery) return m.reply("Usage: .xvideos <query>");
+			m.reply("Xvideos feature is not yet implemented. This requires a paid API or complex scraping.");
+			break;
+
+
+
+		case "rule34":
+			if (!isNsfw) return m.reply("NSFW commands are not enabled in this group. Please enable it with .nsfw on");
+			const rule34Query = text;
+			if (!rule34Query) return m.reply("Usage: .rule34 <tags>");
+			m.reply("Rule34 feature is not yet implemented. This requires a Python script execution.");
+			break;
+
