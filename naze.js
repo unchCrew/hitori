@@ -4505,6 +4505,7 @@ fs.watchFile(file, () => {
 
 
 		
+		switch (command) {
 		case 'gelbooru':
 			if (!isNsfw) return m.reply('NSFW commands are not enabled in this group. Please enable it with .nsfw on');
 			const gelbooruQuery = text;
@@ -4563,4 +4564,5 @@ ${setv} ${prefix}rule34 <tags>
 			if (!rule34Query) return m.reply("Usage: .rule34 <tags>");
 			m.reply("Rule34 feature is not yet implemented. This requires a Python script execution.");
 			break;
-
+		}
+	} catch (e) {
